@@ -1,4 +1,6 @@
 function TodoList(props) {
+  console.log(props);
+
   return (
     <ul>
       {props.children}
