@@ -1,8 +1,9 @@
-function TodoItem() {
+function TodoItem(props) {
+  console.log(props);
   return (
     <li>
       <span>-</span>
-      <p>Todo 1</p>
+      <p>{props.title}</p>
       <span>X</span>
     </li>
   );
