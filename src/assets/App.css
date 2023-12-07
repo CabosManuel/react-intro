@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+:root {
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 3.2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.continer {
+  width: 50%;
+  min-width:600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border-left: 0.1rem solid lightgray;
+  border-right: 0.1rem solid lightgray;
 }
 
-.App-header {
-  background-color: #233553;
-  min-height: 100vh;
+.todos {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  margin-top: 30px;
 }
 
-.App-link {
-  color: #97ca3f;
+.todos__item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  /* border: 1px solid black; */
+  border-bottom: 0.1rem solid lightgray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Checkbox -  */
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+
+  font: inherit;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid;
+  border-radius: 3px;
 }
