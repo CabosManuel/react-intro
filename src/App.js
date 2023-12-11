@@ -14,7 +14,7 @@ const defaultToDos = [
 
 function App() {
   return (
-    <div className='continer'>
+    <div className='container'>
       <TodoCounter total={6} completed={3}/>
       <TodoSearch/>
 

@@ -1,12 +1,12 @@
 :root {
-
+  --green: #009568;
 }
 
 h1 {
   font-size: 3.2rem;
 }
 
-.continer {
+.container {
   width: 50%;
   min-width:600px;
   height: 100%;
@@ -19,27 +19,47 @@ h1 {
 .todos {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin-top: 30px;
 }
 
 .todos__item {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   padding: 10px 0;
-  /* border: 1px solid black; */
   border-bottom: 0.1rem solid lightgray;
 }
 
-/* Checkbox -  */
+/* Checkbox Styles --------------------------------------------------- */
+/* Reference video (not the same design): https://youtu.be/y93M3RoKQUE */
 input[type="checkbox"] {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-
+  transform: translateY(3px);
+  width: 1.5rem;
+  height: 1.5rem;
   font: inherit;
-  width: 2rem;
-  height: 2rem;
-  border: 3px solid;
+  appearance: none;
+  border: 1px solid;
   border-radius: 3px;
 }
+
+input[type="checkbox"]::after {
+  content: '✓';
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-2px);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  color: var(--green);
+}
+
+input[type="checkbox"]:checked::after {
+  display: flex;
+}
+/* ------------------------------------------------------------------- */
