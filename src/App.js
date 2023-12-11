@@ -4,6 +4,8 @@ import { TodoSearch } from './components/TodoSearch';
 import { TodoList } from './components/TodoList';
 import { TodoItem } from './components/TodoItem';
 import { TodoNew } from './components/TodoNew';
+import { CreateTodoBtn } from './components/CreateTodoBtn';
+import { FaClipboardCheck } from "react-icons/fa6";
 
 const defaultToDos = [
   { id: 1, title: "Task 1", completed: true },
@@ -16,12 +18,16 @@ const defaultToDos = [
 function App() {
   return (
     <div className='container'>
-      <TodoCounter total={6} completed={3}/>
+      <h1>
+        <FaClipboardCheck/>
+        ToDo App
+      </h1>
       <div className='new-todo'>
         <TodoNew/>
         <CreateTodoBtn/>
       </div>
       {/* <TodoSearch/> */}
+      <TodoCounter total={6} completed={3}/>
 
       <TodoList>
         { defaultToDos.map(toDo => (
@@ -33,12 +39,6 @@ function App() {
         )) }
       </TodoList>
     </div>
-  );
-}
-
-function CreateTodoBtn() {
-  return (
-    <button className='new-todo__btn'>+</button>
   );
 }
 
