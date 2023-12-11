@@ -1,10 +1,15 @@
 :root {
   --green: #009568;
   --dark-green: #006c5c;
+  --light-green: #00c36f;
 }
 
 h1 {
+  display: flex;
   font-size: 3.2rem;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
 /* Checkbox Styles */
@@ -54,7 +59,7 @@ input[type="checkbox"]:checked::after {
 
 .new-todo {
   display: flex;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .new-todo__text {
@@ -78,6 +83,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .new-todo__btn {
+  position: relative;
   min-width: 30px;
   height: 30px;
   font: inherit;
@@ -89,7 +95,37 @@ input[type="checkbox"]:checked::after {
   cursor: pointer;
 }
 .new-todo__btn:hover {
+  background: var(--light-green);
+}
+.new-todo__btn:active {
   background: var(--dark-green);
+}
+.new-todo__btn__icon {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+}
+
+.todo-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.todo-counter > span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.todo-counter__total {
+  color: gray;
+}
+.todo-counter__todo {
+  color: salmon;
+}
+.todo-counter__completed {
+  color: var(--green);
 }
 
 .todos {
