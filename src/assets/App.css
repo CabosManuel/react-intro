@@ -136,7 +136,20 @@ input[type="checkbox"]:checked::after {
 
 .todos__item {
   display: flex;
+  align-items: baseline;
   gap: 8px;
   padding: 10px 0;
   border-bottom: 0.1rem solid lightgray;
+}
+.todos__item__task {
+  margin-right: auto;
+}
+.todo__item__delete{
+  width: 20px;
+  padding: 0 5px;
+  cursor: pointer;
+  color: lightgray;
+}
+.todo__item__delete:hover {
+  color: salmon;
 }
