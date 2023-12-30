@@ -7,9 +7,14 @@ function TodoItem(props) {
       <input
         type="checkbox"
         defaultChecked={props.completed}
+        // Al hacer click llamar la función que esta recibiendo como props
+        onClick={props.onCheck}
       />
       <label className="todos__item__task">{props.title}</label>
-      <FaTrash className="todo__item__delete"/>
+      <FaTrash
+        className="todo__item__delete"
+        onClick={props.onDelete}
+      />
     </li>
   );
 }

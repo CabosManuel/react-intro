@@ -10,8 +10,8 @@ import { useState } from 'react';
 
 const defaultToDos = [
   { id: 1, title: "Crea una nueva tarea +", completed: false },
-  { id: 2, title: "Busca una tarea 🔍", completed: true },
-  { id: 3, title: "Elimina esta tarea completada 🚮", completed: true },
+  { id: 2, title: "Busca una tarea 🔍", completed: false },
+  { id: 3, title: "Elimina tareas 🚮", completed: false },
 ];
 
 function App() {
@@ -35,6 +35,23 @@ function App() {
     }
   );
 
+  // Función para actualizar estado de las tareas cuando cambia un checkbox
+  const updateTodo = (index) => {
+    const newTodos = [...todos];
+
+    const isCompleted = newTodos[index].completed;
+    newTodos[index].completed = (isCompleted) ? false : true;
+
+    setTodos(newTodos);
+  }
+  
+  // Función para eliminar todo cuando hace click al ícono
+  const deleteTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  }
+
   return (
     <div className='container'>
       <h1>
@@ -47,19 +64,26 @@ function App() {
         <CreateTodoBtn/>
       </div>
 
-      <TodoSearch
+      {/* TODO: Mejorar estilos, ubicación y función de búsqueda */}
+      {/* <TodoSearch
         // Enviar props
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-      />
+      /> */}
       <TodoCounter total={totalTodos} completed={completedTodos}/>
 
       <TodoList>
-        { searchedTodo.map(toDo => (
+        { searchedTodo.map((todo, index) => (
           <TodoItem
-            key={toDo.id}
-            title={toDo.title}
-            completed={toDo.completed}
+            key={todo.id}
+            title={todo.title}
+            completed={todo.completed}
+            onDelete={deleteTodo}
+            // 💡 React solo recibe funciones sin parámetros, así que se encapsula
+            // en una arrow function para poder enviar un parámetro dentro
+            onCheck={() => {
+              updateTodo(index);
+            }}
           />
         )) }
       </TodoList>

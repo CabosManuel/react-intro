@@ -109,7 +109,6 @@ input[type="checkbox"]:checked::after {
 .todo-counter {
   display: flex;
   align-items: center;
-  gap: 10px;
   font-size: 1.1rem;
 }
 
@@ -117,11 +116,14 @@ input[type="checkbox"]:checked::after {
   display: flex;
   align-items: center;
   gap: 3px;
+  margin-right: 5px;
 }
 .todo-counter__total {
+  width: 70px;
   color: gray;
 }
 .todo-counter__todo {
+  width: 65px;
   color: salmon;
 }
 .todo-counter__completed {
