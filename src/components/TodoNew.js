@@ -4,7 +4,7 @@ function TodoNew() {
   // React state (immutable)
   // [stateName, setStateFunctionName]
   const [newTaskValue, setNewTaskValue] = useState(''); // '' Initial value
-  console.log('newTaskValue', newTaskValue);
+  // console.log('newTaskValue', newTaskValue);
 
   return (
     <input
