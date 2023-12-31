@@ -5,6 +5,7 @@ import { TodoList } from './components/TodoList';
 import { TodoItem } from './components/TodoItem';
 import { TodoNew } from './components/TodoNew';
 import { CreateTodoBtn } from './components/CreateTodoBtn';
+import { SidebarItem } from './components/SidebarItem';
 import { FaClipboardCheck } from "react-icons/fa6";
 import { useState } from 'react';
 
@@ -53,28 +54,22 @@ function App() {
   }
 
   return (
-    <div className='container'>
+    <div className='main'>
+    <div className='content'>
       <h1>
         <FaClipboardCheck/>
         ToDo App
       </h1>
-
       <div className='new-todo'>
         <TodoNew/>
         <CreateTodoBtn/>
       </div>
-
-      {/* TODO: Mejorar estilos, ubicación y función de búsqueda */}
-      {/* <TodoSearch
-        // Enviar props
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      /> */}
       <TodoCounter total={totalTodos} completed={completedTodos}/>
 
       <TodoList>
         { searchedTodo.map((todo, index) => (
           <TodoItem
+            // Enviar props: key, title, completed, onDelete, onCheck
             key={todo.id}
             title={todo.title}
             completed={todo.completed}
@@ -87,6 +82,15 @@ function App() {
           />
         )) }
       </TodoList>
+    </div>
+    <div className='sidebar'>
+      <SidebarItem>
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+      </SidebarItem>
+    </div>
     </div>
   );
 }

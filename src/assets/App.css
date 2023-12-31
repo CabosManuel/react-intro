@@ -2,6 +2,7 @@
   --green: #009568;
   --dark-green: #006c5c;
   --light-green: #00c36f;
+  --gray: #3f3f3f;
 }
 
 h1 {
@@ -46,12 +47,21 @@ input[type="checkbox"]:checked::after {
   display: flex;
 }
 
+.hide {
+  display: none;
+}
 
-.container {
+.main {
+  display: flex;
+  justify-content: center;
+  min-width: 664px;
+  height: 100%;
+}
+
+.content {
   width: 50%;
   min-width:600px;
-  height: 100%;
-  margin: 0 auto;
+  max-width:800px;
   padding: 20px;
   border-left: 0.1rem solid lightgray;
   border-right: 0.1rem solid lightgray;
@@ -120,7 +130,7 @@ input[type="checkbox"]:checked::after {
 }
 .todo-counter__total {
   width: 70px;
-  color: gray;
+  color: var(--gray);
 }
 .todo-counter__todo {
   width: 65px;
@@ -154,4 +164,64 @@ input[type="checkbox"]:checked::after {
 }
 .todo__item__delete:hover {
   color: salmon;
+}
+
+/* ******* */
+/* SIDEBAR */
+/* ******* */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 48px;
+  height: 100%;
+  border-right: 0.1rem solid lightgray;
+}
+
+.sidebar__item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+}
+
+.search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+  color: var(--gray);
+  cursor: pointer;
+}
+.search-icon:hover {
+  color: #009568;
+}
+.color__green {
+  color: #009568;
+}
+
+.sidebar__item__highlight {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--light-green);
+}
+
+.sidebar__item__search-box {
+  position: absolute;
+  right: 64px;
+  /* width: 100%; */
+  padding: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  /* background-color: lightgray; */
+  border-style: none;
+  border-color: transparent;
+  border-bottom: 1px solid var(--green);
+  outline: none;
+  resize: vertical;
 }
