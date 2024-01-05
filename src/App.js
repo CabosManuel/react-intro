@@ -1,5 +1,4 @@
 import './assets/App.css';
-import { useState } from 'react';
 import { TodoCounter } from './components/TodoCounter';
 import { TodoList } from './components/TodoList/TodoList';
 import { TodoItem } from './components/TodoList/TodoItem';

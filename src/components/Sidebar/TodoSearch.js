@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { TodoContext } from "../TodoContext";
 
-function TodoSearch(props) {
+function TodoSearch() {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
+
   return (
     <>
       <FaMagnifyingGlass
@@ -14,17 +18,17 @@ function TodoSearch(props) {
           sidebarItemSearchIcon.classList.toggle('color__green');
 
           searchBox.classList.toggle('hide');
-          props.setSearchValue('');
+          setSearchValue('');
         }}
       />
       <input
         id='searchBox'
         placeholder='Search...'
         className='sidebar__item__search-box hide'
-        value={props.searchValue}
+        value={searchValue}
         onChange={(event) => {
           // TODO: Mostrar mensaje cuando no encontró ninguna coincidencia
-          props.setSearchValue(event.target.value);
+          setSearchValue(event.target.value);
         }}
         />
     </>
