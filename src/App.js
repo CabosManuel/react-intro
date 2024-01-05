@@ -1,51 +1,14 @@
 import './assets/App.css';
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch';
-import { TodoList } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
-import { TodoNew } from './components/TodoNew';
-import { CreateTodoBtn } from './components/CreateTodoBtn';
-import { SidebarItem } from './components/SidebarItem';
-import { FaClipboardCheck } from "react-icons/fa6";
 import { useState } from 'react';
-
-/*
-const defaultToDos = [
-  { id: 1, title: "Crea una nueva tarea +", completed: false },
-  { id: 2, title: "Busca una tarea 🔍", completed: false },
-  { id: 3, title: "Elimina tareas 🚮", completed: false },
-];
-
-localStorage.getItem('TODOS');
-localStorage.setItem('TODOS', JSON.stringify(defaultToDos));
-localStorage.removeItem('TODOS');
-*/
-
-// Custom Hook:
-// Usa por dentro un useState, tiene 
-function useLocalStorage(itemName, initialValue) {
-  const [item, setLocalStorageItem] = useState(() => {
-    // Cuando el localStorage no tenga todos, retornar array vacío
-    const itemFromStorage = localStorage.getItem(itemName);
-    if (!itemFromStorage) {
-      localStorage.setItem(itemName, initialValue);
-      return initialValue;
-    } else {
-      return JSON.parse(itemFromStorage);
-    }
-  });
-
-  // Actualizar item en LocalStorage y en useState
-  const updateItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setLocalStorageItem(newItem);
-  }
-
-  // Retornar updateItem porque actualiza el LS y
-  // NO DEVOLVEMOS EL setLocalStorageItem sino el updateItem 
-  // (a quien se le ha delegado la lógica que necesita)
-  return [item, updateItem];
-}
+import { TodoCounter } from './components/TodoCounter';
+import { TodoList } from './components/TodoList/TodoList';
+import { TodoItem } from './components/TodoList/TodoItem';
+import { TodoNew } from './components/CreateTodo/TodoNew';
+import { CreateTodoBtn } from './components/CreateTodo/CreateTodoBtn';
+import { TodoSearch } from './components/Sidebar/TodoSearch';
+import { SidebarItem } from './components/Sidebar/SidebarItem';
+import { FaClipboardCheck } from "react-icons/fa6";
+import { useLocalStorage } from './utils/useLocalStorage';
 
 function App() {
   // Usando el Hook "useState" para crear un estado y su modificador
