@@ -12,6 +12,7 @@ function TodoProvider({ children }) {
   //
   // Desestructurando state en [ value, setValue ]
   const [searchValue, setSearchValue] = useState('');
+  const [openModal, setOpenModal] = useState(false);
   const {
     // Renombrar 'item' -> 'todos'
     item: todos,
@@ -64,7 +65,9 @@ function TodoProvider({ children }) {
       setSearchValue,
       searchedTodo,
       checkTodo,
-      deleteTodo
+      deleteTodo,
+      openModal,
+      setOpenModal
     }}>
       {children}
     </TodoContext.Provider>
