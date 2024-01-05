@@ -16,7 +16,15 @@ function App() {
   //
   // Desestructurando state en [ value, setValue ]
   const [searchValue, setSearchValue] = useState('');
-  const [todos, updateTodos] = useLocalStorage('TODOS', []);
+  const {
+    // Renombrar 'item' -> 'todos'
+    item: todos,
+    updateItem: updateTodos,
+    loading,
+    error
+  } = useLocalStorage('TODOS', []);
+  // TODO: Ver como enviar un initialValue [], que sea un array con unas tareas por defecto,
+  // que no de error y que si pueda marcar la tarea completada o eliminada
 
   // Estados derivados:
   // Variables / propiedades / cálculos que vienen a partir de un estado
@@ -60,6 +68,22 @@ function App() {
       <TodoCounter total={totalTodos} completed={completedTodos}/>
 
       <TodoList>
+        { // Si loading es true, mostrar msj
+          (loading && searchedTodo.length === 0)
+            ? <p>Cargando tareas...</p>
+            : null
+        }
+        { // Si error es true, mostrar msj
+          (error)
+            ? <p>¡Error al cargar las tareas!</p>
+            : null
+        }
+        { // Si loading es true y la cantidad del array es 0, mostrar msj
+          (!loading && searchedTodo.length === 0)
+            ? <p>Crea tu primera tarea</p>
+            : null
+        }
+
         { searchedTodo.map((todo, index) => (
           <TodoItem
             // Enviar props: key, title, completed, onDelete, onCheck
