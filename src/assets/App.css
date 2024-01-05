@@ -3,6 +3,7 @@
   --dark-green: #006c5c;
   --light-green: #00c36f;
   --gray: #3f3f3f;
+  --red: #fc3f3f;
 }
 
 h1 {
@@ -146,7 +147,7 @@ input[type="checkbox"]:checked::after {
   margin-top: 10px;
 }
 
-.todos__item {
+.todos__item, .todo__item--loading {
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -164,6 +165,37 @@ input[type="checkbox"]:checked::after {
 }
 .todo__item__delete:hover {
   color: salmon;
+}
+
+/* Loader reference: https://uiverse.io/vk-uiux/neat-goat-26 */
+.todo__item--loading {
+  height: 40px;
+  margin-bottom: 3px;
+  background-image: linear-gradient(
+    90deg,
+    #ccc 0px,
+    rgb(229 229 229 / 90%) 40px,
+    #ccc 80px
+  );
+  background-size: 300%;
+  background-position: 100% 0;
+  border-radius: 5px;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -100% 0;
+  }
+}
+
+.todo__item--empty {
+  text-align: center;
+}
+
+.todo__item--error {
+  text-align: center;
+  color: var(--red);
 }
 
 /* ******* */

@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { TodoCounter } from './components/TodoCounter';
 import { TodoList } from './components/TodoList/TodoList';
 import { TodoItem } from './components/TodoList/TodoItem';
+import { TodosLoading } from './components/TodoList/TodosLoading';
+import { TodosError } from './components/TodoList/TodosError';
+import { TodosEmpty } from './components/TodoList/TodosEmpty';
 import { TodoNew } from './components/CreateTodo/TodoNew';
 import { CreateTodoBtn } from './components/CreateTodo/CreateTodoBtn';
 import { TodoSearch } from './components/Sidebar/TodoSearch';
@@ -70,17 +73,17 @@ function App() {
       <TodoList>
         { // Si loading es true, mostrar msj
           (loading && searchedTodo.length === 0)
-            ? <p>Cargando tareas...</p>
+            ? <TodosLoading />
             : null
         }
         { // Si error es true, mostrar msj
           (error)
-            ? <p>¡Error al cargar las tareas!</p>
+            ? <TodosError />
             : null
         }
         { // Si loading es true y la cantidad del array es 0, mostrar msj
-          (!loading && searchedTodo.length === 0)
-            ? <p>Crea tu primera tarea</p>
+          (!loading && searchedTodo.length < 0)
+            ? <TodosEmpty />
             : null
         }
 

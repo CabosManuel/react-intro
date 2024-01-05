@@ -46,7 +46,7 @@ function useLocalStorage(itemName, initialValue) {
         setError(true);
         console.error('ERROR => ', error);
       }
-    }, 2000);
+    }, 3000);
   }, []);
 
   // Actualizar item en LocalStorage y en useState
