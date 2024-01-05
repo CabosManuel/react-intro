@@ -9,11 +9,17 @@ import { SidebarItem } from './components/SidebarItem';
 import { FaClipboardCheck } from "react-icons/fa6";
 import { useState } from 'react';
 
+/*
 const defaultToDos = [
   { id: 1, title: "Crea una nueva tarea +", completed: false },
   { id: 2, title: "Busca una tarea 🔍", completed: false },
   { id: 3, title: "Elimina tareas 🚮", completed: false },
 ];
+
+localStorage.getItem('TODOS');
+localStorage.setItem('TODOS', JSON.stringify(defaultToDos));
+localStorage.removeItem('TODOS');
+*/
 
 function App() {
   // Usando el Hook "useState" para crear un estado y su modificador
@@ -21,7 +27,16 @@ function App() {
   //
   // Desestructurando state en [ value, setValue ]
   const [searchValue, setSearchValue] = useState('');
-  const [todos, setTodos] = useState(defaultToDos);
+  const [todos, setTodos] = useState(() => {
+    // Cuando el localStorage no tenga todos, retornar array vacío
+    const todosFromStorage = localStorage.getItem('TODOS');
+    if (!todosFromStorage) {
+      localStorage.setItem('TODOS','');
+      return [];
+    } else {
+      return JSON.parse(todosFromStorage);
+    }
+  });
 
   // Estados derivados:
   // Variables / propiedades / cálculos que vienen a partir de un estado
@@ -36,21 +51,25 @@ function App() {
     }
   );
 
-  // Función para actualizar estado de las tareas cuando cambia un checkbox
-  const updateTodo = (index) => {
-    const newTodos = [...todos];
+  // Actualizar todos en LocalStorage y estado
+  const updateTodos = (newTodos) => {
+    localStorage.setItem('TODOS', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  }
 
+  // Función para actualizar estado de las tareas cuando cambia un checkbox
+  const checkTodo = (index) => {
+    const newTodos = [...todos];
     const isCompleted = newTodos[index].completed;
     newTodos[index].completed = (isCompleted) ? false : true;
-
-    setTodos(newTodos);
+    updateTodos(newTodos);
   }
   
   // Función para eliminar todo cuando hace click al ícono
   const deleteTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
-    setTodos(newTodos);
+    updateTodos(newTodos);
   }
 
   return (
@@ -77,7 +96,7 @@ function App() {
             // 💡 React solo recibe funciones sin parámetros, así que se encapsula
             // en una arrow function para poder enviar un parámetro dentro
             onCheck={() => {
-              updateTodo(index);
+              checkTodo(index);
             }}
           />
         )) }
