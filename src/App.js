@@ -21,22 +21,39 @@ localStorage.setItem('TODOS', JSON.stringify(defaultToDos));
 localStorage.removeItem('TODOS');
 */
 
+// Custom Hook:
+// Usa por dentro un useState, tiene 
+function useLocalStorage(itemName, initialValue) {
+  const [item, setLocalStorageItem] = useState(() => {
+    // Cuando el localStorage no tenga todos, retornar array vacío
+    const itemFromStorage = localStorage.getItem(itemName);
+    if (!itemFromStorage) {
+      localStorage.setItem(itemName, initialValue);
+      return initialValue;
+    } else {
+      return JSON.parse(itemFromStorage);
+    }
+  });
+
+  // Actualizar item en LocalStorage y en useState
+  const updateItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setLocalStorageItem(newItem);
+  }
+
+  // Retornar updateItem porque actualiza el LS y
+  // NO DEVOLVEMOS EL setLocalStorageItem sino el updateItem 
+  // (a quien se le ha delegado la lógica que necesita)
+  return [item, updateItem];
+}
+
 function App() {
   // Usando el Hook "useState" para crear un estado y su modificador
   // y poder utilizarlo para escribir en el buscador
   //
   // Desestructurando state en [ value, setValue ]
   const [searchValue, setSearchValue] = useState('');
-  const [todos, setTodos] = useState(() => {
-    // Cuando el localStorage no tenga todos, retornar array vacío
-    const todosFromStorage = localStorage.getItem('TODOS');
-    if (!todosFromStorage) {
-      localStorage.setItem('TODOS','');
-      return [];
-    } else {
-      return JSON.parse(todosFromStorage);
-    }
-  });
+  const [todos, updateTodos] = useLocalStorage('TODOS', []);
 
   // Estados derivados:
   // Variables / propiedades / cálculos que vienen a partir de un estado
@@ -50,12 +67,6 @@ function App() {
       return todoTitle.includes(searchText);
     }
   );
-
-  // Actualizar todos en LocalStorage y estado
-  const updateTodos = (newTodos) => {
-    localStorage.setItem('TODOS', JSON.stringify(newTodos));
-    setTodos(newTodos);
-  }
 
   // Función para actualizar estado de las tareas cuando cambia un checkbox
   const checkTodo = (index) => {
