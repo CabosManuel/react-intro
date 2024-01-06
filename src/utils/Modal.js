@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 function Modal({ children }) {
   return createPortal(
-    <div>
+    <div className="modal-container">
       {children}
     </div>,
     document.getElementById('modal')

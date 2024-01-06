@@ -13,7 +13,7 @@ function CreateTodoBtn() {
       onClick={
         (event) => {
           console.log('Create Todo');
-          setOpenModal(true);
+          setOpenModal(!openModal);
           // console.log('event', event);
           // console.log('event.target', event.target);
         }
