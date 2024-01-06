@@ -36,6 +36,17 @@ function TodoProvider({ children }) {
     }
   );
 
+
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      id: Date.now(),
+      title: text,
+      completed: false
+    })
+    updateTodos(newTodos);
+  }
+
   // Función para actualizar estado de las tareas cuando cambia un checkbox
   const checkTodo = (index) => {
     const newTodos = [...todos];
@@ -67,7 +78,8 @@ function TodoProvider({ children }) {
       checkTodo,
       deleteTodo,
       openModal,
-      setOpenModal
+      setOpenModal,
+      addTodo
     }}>
       {children}
     </TodoContext.Provider>
