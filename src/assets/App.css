@@ -19,6 +19,8 @@ h1 {
 /* Reference video (not the same design): https://youtu.be/y93M3RoKQUE */
 input[type="checkbox"] {
   transform: translateY(3px);
+  min-width: 1.5rem;
+  min-height: 1.5rem;
   width: 1.5rem;
   height: 1.5rem;
   font: inherit;
@@ -110,7 +112,7 @@ form {
   min-width: 30px;
   height: 30px;
   font: inherit;
-  background: var(--green);
+  background: var(--light-green);
   color: inherit;
   line-height: normal;
   border: none;
@@ -119,10 +121,10 @@ form {
   z-index: 1;
 }
 .new-todo__btn:hover {
-  background: var(--light-green);
+  background: var(--green);
 }
 .new-todo__btn:active {
-  background: var(--dark-green);
+  background: var(--light-green);
 }
 .new-todo__btn__icon {
   position: absolute;
@@ -168,10 +170,14 @@ form {
   border-bottom: 0.1rem solid lightgray;
 }
 .todos__item__task {
+  max-width: 540px;
+  width: 540px;
   margin-right: auto;
+  /* FIX: Overflow text, no funciona las elipsis 🤔 */
 }
 .todo__item__delete{
   width: 20px;
+  min-width: 20px;
   padding: 0 5px;
   cursor: pointer;
   color: lightgray;
