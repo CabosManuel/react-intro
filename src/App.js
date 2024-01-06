@@ -47,7 +47,7 @@ function App() {
                     : null
                 }
                 { // Si loading es true y la cantidad del array es 0, mostrar msj
-                  (!loading && searchedTodo.length < 0)
+                  (!loading && searchedTodo.length === 0)
                     ? <TodosEmpty />
                     : null
                 }
@@ -58,7 +58,9 @@ function App() {
                     key={todo.id}
                     title={todo.title}
                     completed={todo.completed}
-                    onDelete={deleteTodo}
+                    onDelete={() => {
+                      deleteTodo(index);
+                    }}
                     // 💡 React solo recibe funciones sin parámetros, así que se encapsula
                     // en una arrow function para poder enviar un parámetro dentro
                     onCheck={() => {
