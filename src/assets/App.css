@@ -49,6 +49,17 @@ input[type="checkbox"]:checked::after {
   display: flex;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
 .hide {
   display: none;
 }
@@ -271,7 +282,46 @@ input[type="checkbox"]:checked::after {
   align-items: center;
   width: 100%;
   height: 100%;
-  color: white;
   background: var(--transparent-gray);
   backdrop-filter: blur(5px);
+}
+
+.todo-modal__title {
+  margin-bottom: 10px;
+}
+
+.todo-modal__textarea {
+  min-width: 360px;
+  max-width: 360px;
+  min-height: 90px;
+  max-height: 90px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-family: inherit;
+}
+
+.todo-modal__btn {
+  min-width: 45%;
+  font: inherit;
+  font-weight: 700;
+  color: inherit;
+  line-height: normal;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-modal__group-btn {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 30px;
+}
+
+.todo-modal__btn--cancel {
+  background-color: lightgray;
+}
+
+.todo-modal__btn--save {
+  background-color: var(--light-green);
 }

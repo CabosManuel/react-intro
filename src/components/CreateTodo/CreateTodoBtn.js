@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../../utils/Modal";
+import { TodoForm } from "./TodoForm";
 
 function CreateTodoBtn() {
   const { openModal, setOpenModal } = useContext(TodoContext);
@@ -26,7 +27,7 @@ function CreateTodoBtn() {
       openModal
       ? (
         <Modal>
-          Form
+          <TodoForm/>
         </Modal>
       ) 
       : null
