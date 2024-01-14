@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/home/kboss/Documents/GitHub/react-intro/build/static/css/main.f13294da.css",
+    "main.js": "/home/kboss/Documents/GitHub/react-intro/build/static/js/main.86fc5490.js",
+    "index.html": "/home/kboss/Documents/GitHub/react-intro/build/index.html",
+    "main.f13294da.css.map": "/home/kboss/Documents/GitHub/react-intro/build/static/css/main.f13294da.css.map",
+    "main.86fc5490.js.map": "/home/kboss/Documents/GitHub/react-intro/build/static/js/main.86fc5490.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f13294da.css",
+    "static/js/main.86fc5490.js"
+  ]
+}
