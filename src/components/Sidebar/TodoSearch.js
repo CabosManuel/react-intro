@@ -27,7 +27,6 @@ function TodoSearch() {
         className='sidebar__item__search-box hide'
         value={searchValue}
         onChange={(event) => {
-          // TODO: Mostrar mensaje cuando no encontró ninguna coincidencia
           setSearchValue(event.target.value);
         }}
         />

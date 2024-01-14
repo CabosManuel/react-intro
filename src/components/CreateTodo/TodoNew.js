@@ -1,21 +1,19 @@
-import { useState } from 'react';
+import { useContext } from "react";
+import { TodoContext } from "../TodoContext";
 
 function TodoNew() {
-  // React state (immutable)
-  // [stateName, setStateFunctionName]
-  const [newTaskValue, setNewTaskValue] = useState(''); // '' Initial value
-  // console.log('newTaskValue', newTaskValue);
+
+  const {newTaskValue, setNewTaskValue} = useContext(TodoContext);
 
   return (
     <input
+      id="newTodoText"
       type="text"
       className="new-todo__text"
       placeholder="Add + new task..."
-      value={newTaskValue} // <-- using state to show value
+      value={newTaskValue}
       onChange={
         (event) => {
-          // console.log('Typing todo...');
-          // console.log(event.target.value);
           setNewTaskValue(event.target.value);
         }
       }

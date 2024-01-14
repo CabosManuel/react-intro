@@ -98,7 +98,7 @@ form {
   background-color: lightgray;
   border-radius: 5px;
   border-style: none;
-  border-color: transparent;
+  border: 1px solid lightgray;
   outline: none;
   resize: vertical;
 }
@@ -173,7 +173,6 @@ form {
   max-width: 540px;
   width: 540px;
   margin-right: auto;
-  /* FIX: Overflow text, no funciona las elipsis 🤔 */
 }
 .todo__item__delete{
   width: 20px;

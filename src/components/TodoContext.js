@@ -12,6 +12,7 @@ function TodoProvider({ children }) {
   //
   // Desestructurando state en [ value, setValue ]
   const [searchValue, setSearchValue] = useState('');
+  const [newTaskValue, setNewTaskValue] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const {
     // Renombrar 'item' -> 'todos'
@@ -28,6 +29,7 @@ function TodoProvider({ children }) {
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  // FIX: Cando no encuentra ninguna tarea, cambiar el msj "Crea una tarea nueva" por "No se han encontrado tareas"
   const searchedTodo = todos.filter(
     (todo) => {
       const todoTitle = todo.title.toLocaleUpperCase();
@@ -36,15 +38,18 @@ function TodoProvider({ children }) {
     }
   );
 
-
+  // Función para crear nuevo todo
   const addTodo = (text) => {
-    const newTodos = [...todos];
-    newTodos.push({
-      id: Date.now(),
-      title: text,
-      completed: false
-    })
-    updateTodos(newTodos);
+    if (text.trim() != '') {
+      const newTodos = [...todos];
+      newTodos.push({
+        id: Date.now(),
+        title: text,
+        completed: false
+      })
+      updateTodos(newTodos);
+      setNewTaskValue('');
+    }
   }
 
   // Función para actualizar estado de las tareas cuando cambia un checkbox
@@ -79,7 +84,9 @@ function TodoProvider({ children }) {
       deleteTodo,
       openModal,
       setOpenModal,
-      addTodo
+      addTodo,
+      newTaskValue,
+      setNewTaskValue,
     }}>
       {children}
     </TodoContext.Provider>
