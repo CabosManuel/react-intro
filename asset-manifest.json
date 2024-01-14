@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/CabosManuel/react-intro/static/css/main.f13294da.css",
-    "main.js": "/CabosManuel/react-intro/static/js/main.86fc5490.js",
-    "index.html": "/CabosManuel/react-intro/index.html",
-    "main.f13294da.css.map": "/CabosManuel/react-intro/static/css/main.f13294da.css.map",
-    "main.86fc5490.js.map": "/CabosManuel/react-intro/static/js/main.86fc5490.js.map"
+    "main.css": "/react-intro/static/css/main.f13294da.css",
+    "main.js": "/react-intro/static/js/main.86fc5490.js",
+    "index.html": "/react-intro/index.html",
+    "main.f13294da.css.map": "/react-intro/static/css/main.f13294da.css.map",
+    "main.86fc5490.js.map": "/react-intro/static/js/main.86fc5490.js.map"
   },
   "entrypoints": [
     "static/css/main.f13294da.css",
