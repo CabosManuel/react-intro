@@ -35,6 +35,7 @@ function App() {
               {({props}) => (component)}
             */}
             {({loading, error, searchedTodo, checkTodo, deleteTodo}) => (
+              // TODO: Agregar sección colapsable de Completados y TODOS
               <TodoList>
                 { // Si loading es true, mostrar msj
                   (loading && searchedTodo.length === 0)

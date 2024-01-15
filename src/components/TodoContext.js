@@ -30,6 +30,7 @@ function TodoProvider({ children }) {
   const totalTodos = todos.length;
 
   // FIX: Cando no encuentra ninguna tarea, cambiar el msj "Crea una tarea nueva" por "No se han encontrado tareas"
+  // FIX: Cuando busco y del resultado de tareas, marco una como completada, se desmarca otras tareas
   const searchedTodo = todos.filter(
     (todo) => {
       const todoTitle = todo.title.toLocaleUpperCase();
@@ -66,6 +67,10 @@ function TodoProvider({ children }) {
     newTodos.splice(index, 1);
     updateTodos(newTodos);
   }
+
+  // TODO: Función para editar todos
+
+  // TODO: Drag and drop para ordenar todos
 
   /* ************************ END Traer toda la lógica del App() al Context ************************ */
 

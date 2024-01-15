@@ -148,6 +148,7 @@ form {
   width: 70px;
   color: var(--gray);
 }
+/* TODO: Agregar estilos para que sea más visible cuantas tareas faltan */
 .todo-counter__todo {
   width: 65px;
   color: salmon;
@@ -169,6 +170,7 @@ form {
   padding: 10px 0;
   border-bottom: 0.1rem solid lightgray;
 }
+/* TODO: Tachar y cambiar color al texto de las tareas completadas */
 .todos__item__task {
   max-width: 540px;
   width: 540px;
