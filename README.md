@@ -1,6 +1,6 @@
 [![wakatime](https://wakatime.com/badge/user/9e0548e0-ba44-4650-b0f1-5ece84453209/project/018c21ca-25d4-4902-b646-18d16420ab6f.svg)](https://wakatime.com/badge/user/9e0548e0-ba44-4650-b0f1-5ece84453209/project/018c21ca-25d4-4902-b646-18d16420ab6f)
 
-# [📗 Curso de React.js](https://platzi.com/cursos/react/) - [ToDo App](https://cabosmanuel.github.io/react-intro/)
+# 📗 Curso de React.js - [ToDo App](https://cabosmanuel.github.io/react-intro/)
 - 👨‍🎓 Certificado: [platzi/CabosManuel](https://platzi.com/p/CabosManuel/)
 - 👨‍💻 **Proyecto: [TodoApp](https://cabosmanuel.github.io/react-intro/)**
 
