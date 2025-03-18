@@ -2,7 +2,7 @@
 
 # 📗 Curso de React.js - [ToDo App](https://cabosmanuel.github.io/react-intro/)
 - 👨‍🎓 Certificado: [platzi/CabosManuel](https://platzi.com/p/CabosManuel/)
-- 👨‍💻 **Proyecto: [TodoApp](https://cabosmanuel.github.io/react-intro/)**
+- 👨‍💻 **Proyecto: [cabosmanuel.github.io/react-intro/](https://cabosmanuel.github.io/react-intro/)**
 
 ![Demo ToDo App](https://i.postimg.cc/RhMkZmV3/demo-todo-app.gif)
 
